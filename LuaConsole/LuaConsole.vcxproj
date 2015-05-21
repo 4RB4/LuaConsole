@@ -85,11 +85,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CScriptArgReader.cpp" />
+    <ClCompile Include="CScriptError.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CScriptMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CLuaCommon.h" />
+    <ClInclude Include="CScriptArgReader.h" />
+    <ClInclude Include="CScriptError.h" />
     <ClInclude Include="luaFunctionDefs.h" />
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CScriptMain.h" />

@@ -1,5 +1,6 @@
 #include "CScriptMain.h"
 #include "luaFunctionDefs.h"
+#include "CScriptError.h"
 
 CScriptMain::CScriptMain(const char* resName, const char* resPath){
 	printf("Starting resource '%s'\n", resName);
@@ -45,7 +46,7 @@ void CScriptMain::initVM() {
 
 
 int CScriptMain::loadScriptsIntoBuffer() {
-	printf("Loading scripts...(Directory: %s)\n", m_resource_Dir);
+	printf("Loading scripts...(Directory: %s)\n\n", m_resource_Dir);
 	//Loading scripts from meta.xml
 	//PLACEHOLDER
 
@@ -57,7 +58,7 @@ int CScriptMain::loadScriptsIntoBuffer() {
 
 
 
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < m_resource_scriptFilesCount; i++) {
 		m_resource_scriptFiles[i] = std::string(m_resource_Dir) + fileNames[i];
 	};
 
@@ -71,7 +72,8 @@ int CScriptMain::loadScriptsIntoBuffer() {
 int CScriptMain::runScriptsFromBuffer() {
 
 	for (int i = 0; i < m_resource_scriptFilesCount; i++) {
-		printf("%s\n", m_resource_scriptFiles[i].c_str());
+
+		//printf("%s\n", m_resource_scriptFiles[i].c_str());
 		if (luaL_loadfile(m_lVM, m_resource_scriptFiles[i].c_str()) == 0) {
 			lua_pcall(m_lVM, 0, LUA_MULTRET, 0);
 		}
@@ -79,11 +81,12 @@ int CScriptMain::runScriptsFromBuffer() {
 			std::string errRes = lua_tostring(m_lVM, -1);
 			printf("SCRIPT ERROR: %s\n", errRes.c_str());
 		}
-			
+
+
+
+
 
 	}
-
-	
 
 
 	return 0;

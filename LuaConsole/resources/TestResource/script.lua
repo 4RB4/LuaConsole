@@ -1,4 +1,3 @@
-
 local eleClass = {}
 
 function eleClass:new(...)
@@ -30,6 +29,7 @@ function eleClass:constructor(eleType)
 end
 
 
-local element = eleClass:new("Player")
+element = eleClass:new("Player")
+outputServerLog("uID: "..tostring(element.ele));
 
-setElementData(element.ele, "randomuserdata", "randomvalue");
+outputInfo()d

@@ -24,6 +24,12 @@
     <ClCompile Include="CResource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CScriptError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CScriptArgReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="luaFunctionDefs.h">
@@ -33,6 +39,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CScriptError.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CLuaCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CScriptArgReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

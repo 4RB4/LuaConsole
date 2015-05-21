@@ -1,21 +1,8 @@
 #pragma once
-#ifndef SCRIPTCLASS_H
-#define SCRIPTCLASS_H
+#ifndef SCRIPTMAIN_H
+#define SCRIPTMAIN_H
 
-/*
-	Prevent VS to handle security lacks as errors
-*/
-#ifdef _MSC_VER
-#define _CRT_SECURE_NO_WARNINGS
-#endif
-
-
-#include <iostream>
-extern "C" {
-#include <lua.h>
-#include <lualib.h>
-#include <lauxlib.h>
-};
+#include "CLuaCommon.h"
 
 /*
 	CScriptMain Class
@@ -41,7 +28,7 @@ public:
 
 protected: 
 
-	std::string m_resource_scriptFiles[1];
+	std::string m_resource_scriptFiles[2];
 	int m_resource_scriptFilesCount = sizeof(m_resource_scriptFiles) / sizeof(*m_resource_scriptFiles);
 
 	const char* m_resource_Name;

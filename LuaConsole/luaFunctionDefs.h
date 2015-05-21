@@ -51,6 +51,7 @@ int CElementFunctionDefs::createElement(lua_State* lVM) {
 	std::string eleType = lua_tostring(lVM, -1);
 
 	printf("createElement: %s\n", eleType.c_str());
+	
 
 	void* ud = lua_newuserdata(lVM, sizeof(void*));
 
@@ -64,16 +65,16 @@ int CElementFunctionDefs::createElement(lua_State* lVM) {
 
 
 int CElementFunctionDefs::setElementData(lua_State* lVM) {
-
-	void* ud = lua_touserdata(lVM, -1);
+	
+	void* ud = lua_touserdata(lVM, -3);
 	std::string udIndex = lua_tostring(lVM, -2);
-	std::string udValue = lua_tostring(lVM, -3);
+	std::string udValue = lua_tostring(lVM, -1);
 
-	printf("Tesrt %s %s", udIndex, udValue);
-	printf("bool setElementData(element '%s', index '%s', value '%s')", ud, udIndex, udValue);
+	printf("setElementData Values: \nElement: %s\nIndex: %s\nValue: %s\n", ud, udIndex.c_str(), udValue.c_str());
+	printf("bool setElementData(element '%s', index '%s', value '%s')", ud, udIndex.c_str(), udValue.c_str());
 
-	if (lua_type(lVM, -1) == LUA_TLIGHTUSERDATA) {
-		printf("Userdata found!");
+	if (lua_type(lVM, -3) == LUA_TUSERDATA) {
+		printf("!!!Userdata found!!!\n");
 	}
 
 	return 1;
