@@ -30,6 +30,10 @@ end
 
 
 element = eleClass:new("Player")
-outputServerLog("uID: "..tostring(element.ele));
+--outputServerLog("uID: "..tostring(element.ele));
+outputServerLog(kioo);
 
-outputInfo()d
+--outputInfo()
+
+--setElementData(element.ele, "Index", "Value")
+

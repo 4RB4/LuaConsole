@@ -1,6 +1,5 @@
 #include "CScriptMain.h"
 #include "luaFunctionDefs.h"
-#include "CScriptError.h"
 
 CScriptMain::CScriptMain(const char* resName, const char* resPath){
 	printf("Starting resource '%s'\n", resName);
@@ -16,13 +15,6 @@ CScriptMain::CScriptMain(const char* resName, const char* resPath){
 int CScriptMain::bindFunctions() {
 
 	CElementFunctionDefs::LoadFunctions(m_lVM);
-
-
-	using namespace luaFunctionDefs;
-
-	lua_pushcfunction(m_lVM, outputServerLog);
-	lua_setglobal(m_lVM, "outputServerLog");
-	
 
 	return 0;
 };

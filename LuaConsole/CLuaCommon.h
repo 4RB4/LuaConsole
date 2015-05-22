@@ -17,5 +17,7 @@ extern "C" {
 #include <lauxlib.h>
 };
 
+//Global stuff
+
 
 #endif

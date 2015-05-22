@@ -27,7 +27,7 @@
     <ClCompile Include="CScriptError.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CScriptArgReader.cpp">
+    <ClCompile Include="CScriptLog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +47,13 @@
     <ClInclude Include="CLuaCommon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CScriptArgReader.h">
+    <ClInclude Include="CScriptArgStreamer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CScriptLog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CDefs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
