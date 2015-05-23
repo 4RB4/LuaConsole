@@ -14,7 +14,7 @@ CScriptMain::CScriptMain(const char* resName, const char* resPath){
 
 int CScriptMain::bindFunctions() {
 
-	CElementFunctionDefs::LoadFunctions(m_lVM);
+	CFunctionDefs::LoadFunctions(m_lVM);
 
 	return 0;
 };
@@ -42,7 +42,7 @@ int CScriptMain::loadScriptsIntoBuffer() {
 	//Loading scripts from meta.xml
 	//PLACEHOLDER
 
-
+	
 	const char* fileNames[2];
 
 	fileNames[0] = "script.lua";

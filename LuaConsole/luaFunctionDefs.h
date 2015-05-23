@@ -6,7 +6,7 @@ using namespace std;
 
 
 
-class CElementFunctionDefs : CDefs {
+class CFunctionDefs : CDefs {
 public: 
 	static void	LoadFunctions		(lua_State* lVM);
 
@@ -19,18 +19,18 @@ public:
 
 };
 
-void CElementFunctionDefs::LoadFunctions(lua_State* lVM) {
+void CFunctionDefs::LoadFunctions(lua_State* lVM) {
 
 	lua_pushstring(lVM, "createElement");
-	lua_pushcfunction(lVM, CElementFunctionDefs::createElement);
+	lua_pushcfunction(lVM, CFunctionDefs::createElement);
 	lua_setglobal(lVM, "createElement");
 
 	lua_pushstring(lVM, "setElementData");
-	lua_pushcfunction(lVM, CElementFunctionDefs::setElementData);
+	lua_pushcfunction(lVM, CFunctionDefs::setElementData);
 	lua_setglobal(lVM, "setElementData");
 
 	lua_pushstring(lVM, "outputServerLog");
-	lua_pushcfunction(lVM, CElementFunctionDefs::outputServerLog);
+	lua_pushcfunction(lVM, CFunctionDefs::outputServerLog);
 	lua_setglobal(lVM, "outputServerLog");
 
 	//printf("ElementFunctions loaded!\n");
@@ -38,7 +38,7 @@ void CElementFunctionDefs::LoadFunctions(lua_State* lVM) {
 
 
 
-int CElementFunctionDefs::createElement(lua_State* lVM) {
+int CFunctionDefs::createElement(lua_State* lVM) {
 	//element createElement(string elementType)
 	string eleType = lua_tostring(lVM, -1);
 
@@ -56,7 +56,7 @@ int CElementFunctionDefs::createElement(lua_State* lVM) {
 }
 
 
-int CElementFunctionDefs::setElementData(lua_State* lVM) {
+int CFunctionDefs::setElementData(lua_State* lVM) {
 	
 	CScriptArgStreamer argStream(lVM, 3);
 
@@ -73,7 +73,7 @@ int CElementFunctionDefs::setElementData(lua_State* lVM) {
 	return 1;
 }
 
-int CElementFunctionDefs::outputServerLog(lua_State* lVM) {
+int CFunctionDefs::outputServerLog(lua_State* lVM) {
 	//std::string str;
 
 	CScriptArgStreamer argStreamer(lVM, 1);

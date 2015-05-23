@@ -5,8 +5,12 @@
 class CDefs {
 public:
 
-	CDefs();
-	~CDefs();
+	CDefs() {
+		static CScriptLog m_ScriptLog;
+	};
+	~CDefs() {
+
+	};
 
 protected:
 	

@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef SCRIPTLOG_H
 #define SCRIPTLOG_H
 
