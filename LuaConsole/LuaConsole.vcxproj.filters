@@ -21,13 +21,16 @@
     <ClCompile Include="CScriptMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CResource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CScriptError.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CScriptLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPackage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="luaFunctionDefs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,9 +39,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CScriptMain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CResource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CScriptError.h">
@@ -51,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CScriptLog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPackage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CDefs.h">

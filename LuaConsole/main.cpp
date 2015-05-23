@@ -1,12 +1,12 @@
-#include "CResource.h"
+#include "CPackage.h"
 
 int main() {
 
-
-	CResource newResource("TestResource", "resources\\TestResource\\");
+	//PackageName, packageDir
+	CPackage newPackage("default", "packages\\default\\");
 	
-	
 
+	printf("\n");
 	system("PAUSE");
 	return 0;
 }

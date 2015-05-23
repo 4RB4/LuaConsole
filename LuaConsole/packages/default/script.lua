@@ -28,12 +28,9 @@ function eleClass:constructor(eleType)
 	self:setData("xPos", 30)
 end
 
-
 element = eleClass:new("Player")
 --outputServerLog("uID: "..tostring(element.ele));
-outputServerLog(kioo);
-
+outputServerLog("Script loaded!");
 --outputInfo()
 
---setElementData(element.ele, "Index", "Value")
-
+setElementData("User", 53, 43)

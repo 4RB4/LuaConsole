@@ -9,13 +9,18 @@
 	Log Handler
 */
 class CScriptLog {
-public:	
-	CScriptLog();
-	~CScriptLog();
-
-	void mail() {
-		printf("MAIL");
+public:
+	CScriptLog() {
+		//Constructor
 	}
+
+	~CScriptLog() {
+		//Deconstructor
+	}
+
+	static int logFatalError(lua_State*, std::string);
+	static int logBadArgument(lua_State*, std::string);
+
 };
 
 

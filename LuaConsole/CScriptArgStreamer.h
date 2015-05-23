@@ -2,8 +2,7 @@
 #define SCRIPTARGREADER_H
 
 #include "CLuaCommon.h"
-#include "CScriptLog.h"
-#include <sstream>
+
 
 
 /*
@@ -13,12 +12,12 @@
 
 class CScriptArgStreamer {
 public:
-	CScriptArgStreamer(lua_State* lVM, int args) {
+	CScriptArgStreamer(lua_State* lVM) {
 		//Constructor
+
 		m_lVM = lVM;
-		m_argIndex = -args;
+		m_argIndex = -lua_gettop(lVM);
 		m_index = 1;
-		extern CScriptLog* g_ScriptLog;
 	};
 	~CScriptArgStreamer() {
 		//Destructor
@@ -31,17 +30,26 @@ public:
 		
 		if (ArgType == LUA_TSTRING || ArgType == LUA_TNUMBER) {
 			Arg = lua_tostring(m_lVM, m_argIndex);
-			printf("STRING");
+			
+			m_argIndex++;
+			m_index++;
+
 			return Arg;
 		}
 		if (defaultValue) {
 			Arg = defaultValue;
+
+			m_argIndex++;
+			m_index++;
+
 			return Arg;
 		}
 		
 		
-		Error("string", lua_typename(m_lVM, ArgType));
+		setError("string", lua_typename(m_lVM, ArgType));
 
+		
+		
 		return Arg;
 	}
 
@@ -65,18 +73,25 @@ public:
 	};
 
 
-	void Error(const char* typeExpected, const char* typeGot) {
-		m_errorTypeExpected = typeExpected;
-		m_errorTypeGot = typeGot;
-		m_error = true;
-	}
+
 	std::string getError() {
 		if (m_error) {
-			std::string errMsg = std::string("Bad argument @ '") + "functionname" + ("'[Expected '") + m_errorTypeExpected + ("' @ argument ") + std::to_string(m_index) + (", got '") + m_errorTypeGot + ("']!");
-			printf(errMsg.c_str());
-			
+			//Get functionname
+			lua_Debug err; 
+			lua_getstack(m_lVM, 0, &err);
+			lua_getinfo(m_lVM, "n", &err);
+
+			std::string errMsg = std::string("Bad argument @ '") + err.name + ("'[Expected ") + m_errorTypeExpected + (" @ argument ") + std::to_string(m_index) + (", got ") + m_errorTypeGot + ("]");	
+			return errMsg;
 		}
 		return "";
+	}
+
+	bool Error() {
+		if (m_error)
+			return true;
+		
+		return false;
 	}
 
 
@@ -84,10 +99,17 @@ private:
 	lua_State*	m_lVM;
 	int			m_argIndex;
 	int			m_index;
+	const char* m_streamerInstanceFunctionName;
 
 	bool		m_error = false;
 	const char*	m_errorTypeExpected;
 	const char* m_errorTypeGot;
+
+	void setError(const char* typeExpected, const char* typeGot) {
+		m_errorTypeExpected = typeExpected;
+		m_errorTypeGot = typeGot;
+		m_error = true;
+	}
 
 };
 
